@@ -1,10 +1,10 @@
 #ifndef __HEAD_POSE_ESTIMATION
 #define __HEAD_POSE_ESTIMATION
 
-#include <opencv2/core/core.hpp>
 #include <dlib/opencv.h>
 #include <dlib/image_processing.h>
 #include <dlib/image_processing/frontal_face_detector.h>
+#include <opencv2/core/core.hpp>
 
 #include <vector>
 #include <array>
