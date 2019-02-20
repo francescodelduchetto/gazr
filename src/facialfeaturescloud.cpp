@@ -48,8 +48,10 @@ FacialFeaturesPointCloudPublisher::FacialFeaturesPointCloudPublisher(ros::NodeHa
     pub = rgb_it_->advertise("gazr/detected_faces/image",1);
 #endif
 
-    exact_sync_.reset( new ExactSynchronizer(ExactSyncPolicy(5), sub_rgb_, sub_depth_, sub_info_) );
-    exact_sync_->registerCallback(bind(&FacialFeaturesPointCloudPublisher::imageCb, this, _1, _2, _3));
+    //exact_sync_.reset( new ExactSynchronizer(ExactSyncPolicy(5), sub_rgb_, sub_depth_, sub_info_) );
+    //exact_sync_->registerCallback(bind(&FacialFeaturesPointCloudPublisher::imageCb, this, _1, _2, _3));
+    sync_.reset( new Synchronizer(SyncPolicy(5), sub_rgb_, sub_depth_, sub_info_) );
+    sync_->registerCallback(bind(&FacialFeaturesPointCloudPublisher::imageCb, this, _1, _2, _3));
 }
 
 /**

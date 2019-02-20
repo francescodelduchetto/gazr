@@ -66,11 +66,11 @@ private:
     image_transport::Publisher pub;
 #endif
 
-    // typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::Image, sensor_msgs::Image, sensor_msgs::CameraInfo> SyncPolicy;
-    typedef message_filters::sync_policies::ExactTime<sensor_msgs::Image, sensor_msgs::Image, sensor_msgs::CameraInfo> ExactSyncPolicy;
-    // typedef message_filters::Synchronizer<SyncPolicy> Synchronizer;
-    typedef message_filters::Synchronizer<ExactSyncPolicy> ExactSynchronizer;
-    // std::shared_ptr<Synchronizer> sync_;
-    std::shared_ptr<ExactSynchronizer> exact_sync_;
+    typedef message_filters::sync_policies::ApproximateTime<sensor_msgs::Image, sensor_msgs::Image, sensor_msgs::CameraInfo> SyncPolicy;
+    //typedef message_filters::sync_policies::ExactTime<sensor_msgs::Image, sensor_msgs::Image, sensor_msgs::CameraInfo> ExactSyncPolicy;
+    typedef message_filters::Synchronizer<SyncPolicy> Synchronizer;
+    //typedef message_filters::Synchronizer<ExactSyncPolicy> ExactSynchronizer;
+    std::shared_ptr<Synchronizer> sync_;
+    //std::shared_ptr<ExactSynchronizer> exact_sync_;
 };
 
